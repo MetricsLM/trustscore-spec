@@ -1,6 +1,5 @@
-
 const fs = require('fs');
-const Ajv = require('ajv');
+const Ajv2020 = require('ajv/dist/2020'); // ← NEW: load 2020-12 support
 
 const schema = JSON.parse(fs.readFileSync('trustscore.schema.json', 'utf-8'));
 
@@ -10,7 +9,7 @@ let found = false;
 for (const file of filenames) {
   if (fs.existsSync(file)) {
     const data = JSON.parse(fs.readFileSync(file, 'utf-8'));
-    const ajv = new Ajv();
+    const ajv = new Ajv2020(); // ← Use Ajv2020 instead of default Ajv
     const validate = ajv.compile(schema);
     const valid = validate(data);
     if (valid) {
@@ -23,5 +22,6 @@ for (const file of filenames) {
     }
   }
 }
+
 console.error('❌ No trustscore file found to validate.');
 process.exit(1);
