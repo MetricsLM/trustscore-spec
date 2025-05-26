@@ -1,0 +1,256 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MetricsLM TrustScore Minimum Schema",
+  "type": "object",
+  "required": [
+    "agent_name",
+    "provider",
+    "primary_use_case",
+    "industry_vertical",
+    "deployment_status",
+    "compliance",
+    "risk_profile",
+    "explainability",
+    "bias_mitigation",
+    "trust_metadata"
+  ],
+  "properties": {
+    "agent_name": {
+      "type": "string"
+    },
+    "provider": {
+      "type": "object",
+      "required": [
+        "company_name",
+        "website",
+        "contact_email"
+      ],
+      "properties": {
+        "company_name": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string",
+          "format": "uri"
+        },
+        "contact_email": {
+          "type": "string",
+          "format": "email"
+        }
+      }
+    },
+    "primary_use_case": {
+      "type": "string"
+    },
+    "industry_vertical": {
+      "type": "string"
+    },
+    "deployment_status": {
+      "type": "string",
+      "enum": [
+        "Prototype",
+        "Beta",
+        "Production"
+      ]
+    },
+    "compliance": {
+      "type": "object",
+      "required": [
+        "standards",
+        "audit_report_available",
+        "last_audit_date"
+      ],
+      "properties": {
+        "standards": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "audit_report_available": {
+          "type": "boolean"
+        },
+        "last_audit_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "certification_issuer": {
+          "type": "string"
+        },
+        "certification_expiry_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "certification_verified": {
+          "type": "boolean"
+        },
+        "dei_compliance": {
+          "type": "boolean"
+        }
+      }
+    },
+    "risk_profile": {
+      "type": "object",
+      "required": [
+        "risk_level",
+        "incident_history"
+      ],
+      "properties": {
+        "risk_level": {
+          "type": "string",
+          "enum": [
+            "Low",
+            "Medium",
+            "High"
+          ]
+        },
+        "incident_history": {
+          "type": "boolean"
+        },
+        "incident_details": {
+          "type": "string"
+        },
+        "potential_fines_exposure": {
+          "type": "string"
+        }
+      }
+    },
+    "explainability": {
+      "type": "object",
+      "required": [
+        "support",
+        "techniques"
+      ],
+      "properties": {
+        "support": {
+          "type": "string",
+          "enum": [
+            "None",
+            "Partial",
+            "Full"
+          ]
+        },
+        "techniques": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "advanced_techniques": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "bias_mitigation": {
+      "type": "object",
+      "required": [
+        "enabled"
+      ],
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "methods": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "trust_metadata": {
+      "type": "object",
+      "required": [
+        "self_certified",
+        "certification_status",
+        "submitted_on"
+      ],
+      "properties": {
+        "self_certified": {
+          "type": "boolean"
+        },
+        "certification_status": {
+          "type": "string"
+        },
+        "submitted_on": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "model_behavior": {
+      "type": "object",
+      "properties": {
+        "foundation_model": {
+          "type": "string"
+        },
+        "fine_tuned": {
+          "type": "boolean"
+        },
+        "fine_tuning_summary": {
+          "type": "string"
+        },
+        "model_update_frequency": {
+          "type": "string"
+        }
+      }
+    },
+    "vendor": {
+      "type": "object",
+      "properties": {
+        "maturity": {
+          "type": "string"
+        }
+      }
+    },
+    "audit": {
+      "type": "object",
+      "properties": {
+        "frequency": {
+          "type": "string"
+        },
+        "third_party_audit": {
+          "type": "boolean"
+        },
+        "auditor_name": {
+          "type": "string"
+        },
+        "encryption_at_rest": {
+          "type": "boolean"
+        },
+        "encryption_in_transit": {
+          "type": "boolean"
+        },
+        "data_retention_policy": {
+          "type": "string"
+        },
+        "data_retention_days": {
+          "type": "integer"
+        }
+      }
+    },
+    "integration": {
+      "type": "object",
+      "properties": {
+        "ecosystem_integrations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "supported_platforms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "integration_cost": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
