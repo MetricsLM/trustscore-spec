@@ -1,0 +1,31 @@
+name: Validate TrustScore
+
+on:
+  push:
+    paths:
+      - 'trustscore.json'
+      - 'trustscore.min.json'
+      - 'trustscore.full.json'
+  pull_request:
+    paths:
+      - 'trustscore.json'
+      - 'trustscore.min.json'
+      - 'trustscore.full.json'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    name: Validate trustscore file
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Ajv validator
+        run: npm install ajv
+
+      - name: Run validation script
+        run: node ./scripts/validate.js
