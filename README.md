@@ -3,6 +3,8 @@
 The official open standard for certifying AI agents.  
 Includes `trustscore.json` schema, examples, and integration guides.
 
+![TrustScore Validation](https://github.com/MetricsLM/trustscore-spec/actions/workflows/validate-trustscore.yml/badge.svg)
+
 ---
 
 ### 📂 Start Here
