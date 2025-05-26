@@ -15,7 +15,7 @@ Includes `trustscore.json` schema, examples, and integration guides.
 
 - [`trustscore.min.json`](./trustscore.min.json) – Minimal viable trust declaration format  
 - [`trustscore.full.json`](./trustscore.full.json) – ✅ Complete trust declaration with full audit, compliance, and risk metadata  
-- `trustscore.schema.json` – Coming soon
+- [`trustscore.schema.json`](./trustscore.schema.json) – Unified schema that validates both min and full formats
 
 ---
 
